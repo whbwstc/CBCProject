@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.whb.cloud.dao.store.CbcStoreDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.whb.cloud.entity.store.CbcStoreEntity" id="cbcStoreMap">
+        <result property="storeId" column="store_id"/>
+        <result property="storeName" column="store_name"/>
+        <result property="storeAddr" column="store_addr"/>
+        <result property="storeCity" column="store_city"/>
+        <result property="luggageNum" column="luggage_num"/>
+        <result property="bagNum" column="bag_num"/>
+        <result property="storeState" column="store_state"/>
+    </resultMap>
+
+
+
+    <select id="findStoreAll" resultType="java.util.Map">
+        SELECT
+            c1.store_id,
+            c1.store_name,
+            c1.store_addr,
+            c1.store_city,
+            c1.luggage_num,
+            c1.bag_num,
+            c1.store_state
+        FROM
+            cbc_store c1
+        LIMIT #{startRow},#{pageSize}
+    </select>
+
+
+    <select id="getStoreByCity" resultType="com.whb.cloud.entity.store.CbcStoreEntity">
+        SELECT
+            c1.store_id,
+            c1.store_name,
+            c1.store_addr,
+            c1.store_city,
+            c1.luggage_num,
+            c1.bag_num,
+            c1.store_state
+        FROM
+            cbc_store c1
+        where
+            c1.store_city = #{store_city}
+    </select>
+
+
+    <update id="updateStateById">
+        update cbc_store set store_state = #{state} where store_id = #{store_id}
+    </update>
+
+    <update id="updateSumById">
+        update cbc_store set luggage_num = #{luggage_num},bag_num = #{bag_num} where store_id = #{store_id}
+    </update>
+
+
+</mapper>

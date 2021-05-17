@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.whb.cloud.dao.info.CbcUserDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.whb.cloud.entity.info.CbcUserEntity" id="cbcUserMap">
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="userEmail" column="user_email"/>
+        <result property="userMoney" column="user_money"/>
+        <result property="accUserId" column="acc_user_id"/>
+    </resultMap>
+
+    <!--用户列表查询-->
+    <select id="findUserAll" resultType="java.util.Map">
+        SELECT
+            c.user_id,
+            c.user_name,
+            c.user_phone,
+            c.user_email,
+            c.user_money,
+            c.user_score
+        FROM
+            cbc_user c
+        LIMIT #{startRow},#{pageSize}
+    </select>
+
+
+    <!--  更新用户余额  -->
+    <update id="updateUserMoney">
+        UPDATE cbc_user
+        SET user_money = #{user_money} where user_id=#{user_id}
+    </update>
+
+    <!--  更新用户积分  -->
+    <update id="updateUserScore">
+        UPDATE cbc_user
+        SET user_score = #{user_score} where user_id = #{user_id}
+    </update>
+
+
+</mapper>

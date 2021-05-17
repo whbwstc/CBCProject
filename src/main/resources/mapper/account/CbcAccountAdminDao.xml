@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.whb.cloud.dao.account.CbcAccountAdminDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.whb.cloud.entity.account.CbcAccountAdminEntity" id="cbcAccountAdminMap">
+        <result property="accAdId" column="acc_ad_id"/>
+        <result property="accAdName" column="acc_ad_name"/>
+        <result property="accAdPwd" column="acc_ad_pwd"/>
+        <result property="accAdState" column="acc_ad_state"/>
+    </resultMap>
+
+    <select id="adminlogin" resultMap="cbcAccountAdminMap">
+        SELECT
+            acc_ad_id,
+            acc_store_id,
+            acc_ad_name,
+            acc_ad_pwd,
+            acc_ad_state
+        FROM
+            cbc_account_admin
+        WHERE
+            acc_ad_name = #{username} and acc_ad_pwd=#{password}
+    </select>
+
+    <select id="findAdminIdByEmail" resultType="string">
+        select admin_id from cbc_admin where admin_email = #{admin_email}
+    </select>
+
+
+</mapper>

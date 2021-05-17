@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.whb.cloud.dao.order.CbcOrderDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.whb.cloud.entity.order.CbcOrderEntity" id="cbcOrderMap">
+        <result property="orderId" column="order_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="storeId" column="store_id"/>
+        <result property="enterTime" column="enter_time"/>
+        <result property="outTime" column="out_time"/>
+        <result property="luggageNum" column="luggage_num"/>
+        <result property="bagNum" column="bag_num"/>
+        <result property="orderMoney" column="order_money"/>
+        <result property="orderCode" column="order_code"/>
+        <result property="orderState" column="order_state"/>
+    </resultMap>
+
+    <!--  查询所有用户订单  -->
+    <select id="findOrderAll" resultType="java.util.Map">
+        SELECT
+            c3.user_name,
+            c2.store_addr,
+            c1.order_id,
+            c1.enter_time,
+            c1.out_time,
+            c1.luggage_num,
+            c1.bag_num,
+            c1.order_money,
+            c1.order_code,
+            c1.order_state
+        FROM
+            cbc_order c1
+        LEFT JOIN cbc_store c2 ON c1.store_id = c2.store_id
+        LEFT JOIN cbc_user c3 ON c1.user_id = c3.user_id
+        LIMIT #{startRow},#{pageSize}
+    </select>
+
+    <!--  查询用户订单  -->
+    <select id="getUserOrderById" resultType="java.util.Map">
+        SELECT
+            c.order_id,
+            c.user_id,
+            c.store_id,
+            c1.store_name,
+            c.enter_time,
+            c.out_time,
+            c.luggage_num,
+            c.bag_num,
+            c.order_money,
+            c.order_code,
+            c.order_state
+        FROM
+            cbc_order c
+            LEFT JOIN cbc_store c1 ON c.store_id = c1.store_id
+        WHERE
+            user_id = #{user_id}
+        LIMIT #{startRow},#{pageSize}
+    </select>
+
+    <select id="getUserOrderByIdNoPage" resultType="java.util.Map">
+        SELECT
+            c.order_id,
+            c.user_id,
+            c.store_id,
+            c1.store_name,
+            c.enter_time,
+            c.out_time,
+            c.luggage_num,
+            c.bag_num,
+            c.order_money,
+            c.order_code,
+            c.order_state
+        FROM
+            cbc_order c
+            LEFT JOIN cbc_store c1 ON c.store_id = c1.store_id
+        WHERE
+            user_id = #{user_id}
+        ORDER BY
+            order_id ASC
+    </select>
+
+    <!--   查询寄存点订单   -->
+    <select id="getStoreOrderById" resultType="java.util.Map">
+        SELECT
+            c3.user_name,
+            c2.store_addr,
+            c1.order_id,
+            c1.enter_time,
+            c1.out_time,
+            c1.luggage_num,
+            c1.bag_num,
+            c1.order_money,
+            c1.order_code,
+            c1.order_state
+        FROM
+            cbc_order c1
+            LEFT JOIN cbc_store c2 ON c1.store_id = c2.store_id
+            LEFT JOIN cbc_user c3 ON c1.user_id = c3.user_id
+        WHERE
+            c1.store_id = #{store_id}
+        LIMIT #{startRow},#{pageSize}
+    </select>
+
+    <!--   查询用户寄存点订单   -->
+    <select id="getUserStoreOrderById" resultType="java.util.Map">
+        SELECT
+            c3.user_name,
+            c2.store_addr,
+            c1.order_id,
+            c1.enter_time,
+            c1.out_time,
+            c1.luggage_num,
+            c1.bag_num,
+            c1.order_money,
+            c1.order_code,
+            c1.order_state
+        FROM
+            cbc_order c1
+            LEFT JOIN cbc_store c2 ON c1.store_id = c2.store_id
+            LEFT JOIN cbc_user c3 ON c1.user_id = c3.user_id
+        <where>
+            <if test="store_id != null and store_id != ''">
+                c1.store_id = #{store_id}
+            </if>
+            <if test="order_code != null and order_code != ''">
+                and c1.order_code = #{order_code}
+            </if>
+        </where>
+    </select>
+
+    <!--订单详细查询-->
+    <select id="getUserOrderInfoById" resultType="java.util.Map">
+        SELECT
+            c3.user_name,
+            c2.store_name,
+            c1.enter_time,
+            c1.out_time,
+            c1.luggage_num,
+            c1.bag_num,
+            c1.order_money,
+            c1.order_code,
+            c1.order_state,
+            c4.judge_state
+        FROM
+            cbc_order c1
+            LEFT JOIN cbc_store c2 ON c1.store_id = c2.store_id
+            LEFT JOIN cbc_user c3 ON c1.user_id = c3.user_id
+            LEFT JOIN cbc_judge c4 on c1.order_id = c4.order_id
+        WHERE
+            c1.order_id = #{order_id}
+    </select>
+
+    <!--  查询用户订单总数  -->
+    <select id="countUserOrder" resultType="java.lang.Integer">
+        select count(*) from cbc_order where user_id = #{user_id}
+    </select>
+
+    <!--  查询寄存点订单总数  -->
+    <select id="countStoreOrder" resultType="java.lang.Integer">
+        select count(*) from cbc_order where store_id = #{store_id}
+    </select>
+
+    <!-- 根据订单编号查询订单ID -->
+    <select id="getOrderIdByCode" resultType="java.lang.Integer" >
+        select order_id from cbc_order where order_code = #{order_code}
+    </select>
+
+    <!--  查找当前订单状态  -->
+    <select id="getOrderStateById" resultType="java.util.Map">
+        SELECT
+            c.order_state,
+            cj.judge_state
+        FROM
+            cbc_order c
+            LEFT JOIN cbc_judge cj ON c.order_id = cj.order_id
+        WHERE
+            c.order_id = #{order_id}
+    </select>
+
+
+
+    <!--取件-->
+    <update id="updateOrderState">
+        update cbc_order set order_state = 2 where order_id = #{order_id}
+    </update>
+
+</mapper>

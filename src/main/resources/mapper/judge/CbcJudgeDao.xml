@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.whb.cloud.dao.judge.CbcJudgeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.whb.cloud.entity.judge.CbcJudgeEntity" id="cbcJudgeMap">
+        <result property="judgeId" column="judge_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="judgeText" column="judge_text"/>
+        <result property="judgeTime" column="judge_time"/>
+        <result property="judgeState" column="judge_state"/>
+    </resultMap>
+
+    <select id="getJudgeStateById" resultType="java.lang.Integer">
+        select judge_state from cbc_judge where order_id = #{order_id}
+    </select>
+
+    <update id="updateByOrderId">
+        UPDATE cbc_judge
+        SET judge_grade = #{judgeGrade},
+        judge_text = #{judgeText},
+        judge_time = #{judgeTime},
+        judge_state = 2
+
+        WHERE
+            order_id = #{order_id}
+    </update>
+
+
+</mapper>
