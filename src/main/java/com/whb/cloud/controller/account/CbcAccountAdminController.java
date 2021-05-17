@@ -73,6 +73,7 @@ public class CbcAccountAdminController {
 
     /**
      * 列表
+     * 2021年5月17日16:46:23
      */
     @ApiOperation(value = "查询账户列表", notes = "分页查询", httpMethod = "GET")
     @RequestMapping("/list")
