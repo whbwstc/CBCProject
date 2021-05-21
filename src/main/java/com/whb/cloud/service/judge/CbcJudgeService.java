@@ -3,6 +3,8 @@ package com.whb.cloud.service.judge;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.whb.cloud.entity.judge.CbcJudgeEntity;
 import com.whb.cloud.utils.PageUtils;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +17,24 @@ import java.util.Map;
 public interface CbcJudgeService extends IService<CbcJudgeEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    /**
+     * @Author: wanghanbin
+     * @Description: 列表分页查询
+     * @Date: 19:26 2021/5/18
+     * @Param: [startRow, pageSize, store_id]
+     * @return: java.util.List<java.util.Map<java.lang.String,java.lang.String>>
+     **/
+    List<Map<String,String>> getStoreJudgeById(Integer startRow, Integer pageSize, Integer store_id);
+
+    /**
+     * @Author: wanghanbin
+     * @Description: 寄存点评价总数
+     * @Date: 19:29 2021/5/18
+     * @Param: [store_id]
+     * @return: int
+     **/
+    int countStoreJudge(Integer store_id);
 
     /**
      * @Author: wanghanbin
@@ -33,5 +53,7 @@ public interface CbcJudgeService extends IService<CbcJudgeEntity> {
      * @return: int
      **/
     int updateByOrderId(Integer judgeGrade,String judgeText,String judgeTime,Integer order_id);
+
+
 }
 

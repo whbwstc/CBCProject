@@ -4,6 +4,9 @@ import com.whb.cloud.entity.judge.CbcJudgeEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * 
  * 
@@ -13,6 +16,24 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface CbcJudgeDao extends BaseMapper<CbcJudgeEntity> {
+
+    /**
+     * @Author: wanghanbin
+     * @Description: 列表分页查询
+     * @Date: 19:26 2021/5/18
+     * @Param: [startRow, pageSize, store_id]
+     * @return: java.util.List<java.util.Map<java.lang.String,java.lang.String>>
+     **/
+    List<Map<String,String>> getStoreJudgeById(Integer startRow, Integer pageSize, Integer store_id);
+
+    /**
+     * @Author: wanghanbin
+     * @Description: 寄存点评价总数
+     * @Date: 19:29 2021/5/18
+     * @Param: [store_id]
+     * @return: int
+     **/
+    int countStoreJudge(Integer store_id);
 
     /**
      * @Author: wanghanbin

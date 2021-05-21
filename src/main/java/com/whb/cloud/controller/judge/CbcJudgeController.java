@@ -3,6 +3,7 @@ package com.whb.cloud.controller.judge;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import com.whb.cloud.controller.store.CbcStoreController;
@@ -38,13 +39,36 @@ public class CbcJudgeController {
     private CbcJudgeService cbcJudgeService;
 
     /**
-     * 列表
-     */
+     * @Author: wanghanbin
+     * @Description: 列表分页查询
+     * @Date: 19:44 2021/5/18
+     * @Param: [page, limit, store_id]
+     * @return: com.whb.cloud.utils.Result
+     **/
+    @ApiOperation(value = "列表分页查询", notes = "列表分页查询", httpMethod = "GET")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "page", dataType = "Integer", required = true, value = "页码"),
+            @ApiImplicitParam(paramType = "query", name = "limit",dataType = "Integer", required = true, value = "每页数量"),
+            @ApiImplicitParam(paramType = "query",name = "store_id",dataType = "Integer",required = true,value = "寄存点ID")
+    })
     @RequestMapping("/list")
-    public Result list(@RequestParam Map<String, Object> params){
-        PageUtils page = cbcJudgeService.queryPage(params);
-
-        return Result. success().put("page", page);
+    public Result list(@RequestParam Integer page,@RequestParam Integer limit,@RequestParam Integer store_id){
+        //起始行
+        Integer startRow = null;
+        //查询获取数据
+        List<Map<String,String>> list = null;
+        Integer count = null;
+        try {
+            startRow = (page-1)*limit;
+            list = cbcJudgeService.getStoreJudgeById(startRow, limit, store_id);
+            //获取数据总数
+            count = cbcJudgeService.countStoreJudge(store_id);
+            return Result.success(list,"获取信息成功",count);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+        return null;
     }
 
 

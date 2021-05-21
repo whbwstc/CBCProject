@@ -139,7 +139,7 @@ public class CbcUserController {
             @ApiImplicitParam(paramType = "query", name = "user_money", required = true, value = "用户余额")
     })
     @RequestMapping("/chargeMoney")
-    public Result chargeMoney(@RequestParam Integer user_id,@RequestParam Integer user_money){
+    public Result chargeMoney(@RequestParam Integer user_id,@RequestParam double user_money){
         try {
             return Result.success(cbcUserService.updateUserMoney(user_money,user_id));
         } catch (Exception e) {

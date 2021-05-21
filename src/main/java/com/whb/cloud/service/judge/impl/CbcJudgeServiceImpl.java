@@ -7,6 +7,8 @@ import com.whb.cloud.utils.PageUtils;
 import com.whb.cloud.utils.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -27,6 +29,26 @@ public class CbcJudgeServiceImpl extends ServiceImpl<CbcJudgeDao, CbcJudgeEntity
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public List<Map<String, String>> getStoreJudgeById(Integer startRow, Integer pageSize, Integer store_id) {
+        try {
+            return cbcJudgeDao.getStoreJudgeById(startRow, pageSize, store_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public int countStoreJudge(Integer store_id) {
+        try {
+            return cbcJudgeDao.countStoreJudge(store_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Override

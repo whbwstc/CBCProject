@@ -33,7 +33,7 @@ public interface CbcUserDao extends BaseMapper<CbcUserEntity> {
      * @Param: [user_money, user_id]
      * @return: int
      **/
-    int updateUserMoney(int user_money,int user_id);
+    int updateUserMoney(double user_money,int user_id);
 
     /**
      * @Author: wanghanbin

@@ -13,10 +13,38 @@
         <result property="judgeState" column="judge_state"/>
     </resultMap>
 
+<!--  查询寄存点评价信息  -->
+    <select id="getStoreJudgeById" resultType="java.util.Map">
+        SELECT
+            c1.order_code,
+            c.judge_grade,
+            c.judge_text,
+            c.judge_time
+        FROM
+            cbc_judge c
+            LEFT JOIN cbc_order c1 ON c.order_id = c1.order_id
+        WHERE
+            c.judge_state = 2
+            AND c1.store_id = #{store_id}
+    </select>
+
+    <!--  查询寄存点评价总数  -->
+    <select id="countStoreJudge" resultType="java.lang.Integer">
+        SELECT
+        count( * )
+        FROM
+        cbc_judge c
+        LEFT JOIN cbc_order c1 ON c.order_id = c1.order_id
+        WHERE
+        c1.store_id = #{store_id}
+    </select>
+
+    <!--  查询评价状态  -->
     <select id="getJudgeStateById" resultType="java.lang.Integer">
         select judge_state from cbc_judge where order_id = #{order_id}
     </select>
 
+    <!--  更新评价信息  -->
     <update id="updateByOrderId">
         UPDATE cbc_judge
         SET judge_grade = #{judgeGrade},

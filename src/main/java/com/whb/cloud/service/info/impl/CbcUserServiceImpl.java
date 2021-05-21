@@ -42,7 +42,7 @@ public class CbcUserServiceImpl extends ServiceImpl<CbcUserDao, CbcUserEntity> i
     }
 
     @Override
-    public int updateUserMoney(int user_money, int user_id) {
+    public int updateUserMoney(double user_money, int user_id) {
         try {
             return cbcUserDao.updateUserMoney(user_money, user_id);
         } catch (Exception e) {
