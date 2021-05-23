@@ -36,6 +36,24 @@ public interface CbcAccountUserService extends IService<CbcAccountUserEntity> {
 
     /**
      * @Author: wanghanbin
+     * @Description: 查询该手机号码是否被使用
+     * @Date: 21:15 2021/5/23
+     * @Param: [accUserName]
+     * @return: java.lang.Integer
+     **/
+    Integer findUserNameAlready(String accUserName);
+
+    /**
+     * @Author: wanghanbin
+     * @Description: 查询该手机号码是否被使用（查询id）
+     * @Date: 21:15 2021/5/23
+     * @Param: [accUserName]
+     * @return: java.lang.Integer
+     **/
+    Integer findUserName(String accUserName);
+
+    /**
+     * @Author: wanghanbin
      * @Description: 修改密码
      * @Date: 11:05 2021/4/19
      * @Param: [accUserName, accUserPwd]

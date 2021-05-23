@@ -68,6 +68,26 @@ public class CbcAccountUserServiceImpl extends ServiceImpl<CbcAccountUserDao, Cb
         return null;
     }
 
+    @Override
+    public Integer findUserNameAlready(String accUserName) {
+        try {
+            return cbcAccountUserDao.findUserNameAlready(accUserName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Integer findUserName(String accUserName) {
+        try {
+            return cbcAccountUserDao.findUserName(accUserName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /**
      * @Author: wanghanbin
      * @Description: 修改密码

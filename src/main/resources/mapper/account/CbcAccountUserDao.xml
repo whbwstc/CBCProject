@@ -15,6 +15,15 @@
         select acc_user_id, acc_user_name, acc_user_pwd, acc_user_state from cbc_account_user where acc_user_name=#{username} and acc_user_pwd =#{password}
     </select>
 
+    <!--  查询该手机号码是否被使用  -->
+    <select id="findUserName" resultType="java.lang.Integer">
+        select acc_user_id from cbc_account_user where acc_user_name = #{acc_user_name}
+    </select>
+
+    <select id="findUserNameAlready" resultType="java.lang.Integer">
+        select count(*) from cbc_account_user where acc_user_name = #{acc_user_name}
+    </select>
+
 
     <select id="findUserId" resultType="java.lang.Integer">
         select user_id from cbc_user where acc_user_id = #{acc_user_id}
@@ -23,6 +32,8 @@
     <select id="infoPassword" resultType="java.lang.String">
         select acc_user_pwd from cbc_account_user where acc_user_name = #{accUserName}
     </select>
+
+
 
     <update id="updatePassword">
         update cbc_account_user set acc_user_pwd = #{accUserPwd} where acc_user_name = #{accUserName}

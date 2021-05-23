@@ -5,8 +5,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.whb.cloud.dao.score.CbcScoreDao;
 import com.whb.cloud.entity.account.CbcAccountUserEntity;
+import com.whb.cloud.entity.info.CbcUserEntity;
 import com.whb.cloud.service.account.CbcAccountUserService;
+import com.whb.cloud.service.info.CbcUserService;
 import com.whb.cloud.utils.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -15,6 +18,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -37,6 +41,9 @@ public class CbcAccountUserController {
 
     @Autowired
     private CbcAccountUserService cbcAccountUserService;
+
+    @Autowired
+    private CbcUserService cbcUserService;
 
 
 
@@ -190,6 +197,58 @@ public class CbcAccountUserController {
         }
         return Result.fail();
     }
+
+
+    /**
+     * @Author: wanghanbin
+     * @Description: 用户注册
+     * @Date: 20:56 2021/5/23
+     * @Param: [accUserName]
+     * @return: com.whb.cloud.utils.Result
+     **/
+    @ApiOperation( value = "用户注册" ,notes = "用户注册",httpMethod = "POST")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",name = "accUserName",required = true,dataType = "String",value = "账号")
+    })
+    @RequestMapping("/register")
+    public Result updatePassword(@RequestParam String accUserName) {
+
+        CbcAccountUserEntity cbcAccountUser = new CbcAccountUserEntity();
+        CbcUserEntity cbcUser = new CbcUserEntity();
+        int acc_user_id = 0;
+
+        try {
+            if(StringUtils.isNotBlank(accUserName)){
+                acc_user_id = cbcAccountUserService.findUserNameAlready(accUserName);
+                if (acc_user_id == 0){
+                    //添加用户账户表
+                    cbcAccountUser.setAccUserName(accUserName);
+                    cbcAccountUser.setAccUserPwd("123456");
+                    cbcAccountUser.setAccUserState(1);
+                    cbcAccountUserService.save(cbcAccountUser);
+
+                    //添加用户信息表
+                    cbcUser.setAccUserId(cbcAccountUserService.findUserName(accUserName));
+                    cbcUser.setUserName("存不存用户"+cbcAccountUserService.findUserName(accUserName));
+                    cbcUser.setUserPhone(accUserName);
+                    cbcUser.setUserEmail("***********@qq.com");
+                    cbcUser.setUserMoney(0);
+                    cbcUser.setUserScore(0);
+                    cbcUserService.save(cbcUser);
+
+                    return Result.success("注册成功！初始密码：123456",1);
+
+                }else {
+                    return Result.fail("手机号码已被使用");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+        return Result.fail();
+    }
+
 
     /**
      * 删除

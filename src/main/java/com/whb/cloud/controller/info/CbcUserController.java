@@ -56,7 +56,7 @@ public class CbcUserController {
         Integer count = null;
         try {
             startRow = (page-1)*limit;
-            list = cbcUserService.findUserAll(startRow,page);
+            list = cbcUserService.findUserAll(startRow,limit);
             //获取数据库信息总数
             count = cbcUserService.count();
             return Result.success(list,"",count);

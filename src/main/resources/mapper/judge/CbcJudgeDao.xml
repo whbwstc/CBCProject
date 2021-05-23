@@ -36,7 +36,8 @@
         cbc_judge c
         LEFT JOIN cbc_order c1 ON c.order_id = c1.order_id
         WHERE
-        c1.store_id = #{store_id}
+        c.judge_state = 2
+        AND c1.store_id = #{store_id}
     </select>
 
     <!--  查询评价状态  -->
@@ -51,7 +52,6 @@
         judge_text = #{judgeText},
         judge_time = #{judgeTime},
         judge_state = 2
-
         WHERE
             order_id = #{order_id}
     </update>
