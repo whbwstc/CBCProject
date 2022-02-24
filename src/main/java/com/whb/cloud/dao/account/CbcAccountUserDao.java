@@ -22,7 +22,7 @@ public interface CbcAccountUserDao extends BaseMapper<CbcAccountUserEntity> {
     CbcAccountUserEntity userlogin(String username, String password);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 通过账户id查询用户id
      * @Date: 10:57 2021/4/5
      * @Param: [email]
@@ -31,7 +31,7 @@ public interface CbcAccountUserDao extends BaseMapper<CbcAccountUserEntity> {
     Integer findUserId(Integer acc_user_id);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 查询该手机号码是否被使用
      * @Date: 21:15 2021/5/23
      * @Param: [accUserName]
@@ -41,7 +41,7 @@ public interface CbcAccountUserDao extends BaseMapper<CbcAccountUserEntity> {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 查询该手机号码是否被使用（查询id）
      * @Date: 21:15 2021/5/23
      * @Param: [accUserName]
@@ -50,7 +50,7 @@ public interface CbcAccountUserDao extends BaseMapper<CbcAccountUserEntity> {
     Integer findUserName(String accUserName);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 修改密码
      * @Date: 11:05 2021/4/19
      * @Param: [accUserName, accUserPwd]
@@ -59,7 +59,7 @@ public interface CbcAccountUserDao extends BaseMapper<CbcAccountUserEntity> {
     Integer updatePassword(String accUserName,String accUserPwd);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 密码验证
      * @Date: 11:46 2021/4/19
      * @Param: [accUserName]

@@ -36,7 +36,7 @@ public class CbcUserController {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description:
      * @Date: 13:55 用户列表
      * @Param: [params]
@@ -69,7 +69,7 @@ public class CbcUserController {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 单条数据查询
      * @Date: 10:41 2021/4/28
      * @Param: [userId]
@@ -104,7 +104,7 @@ public class CbcUserController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 修改用户信息
      * @Date: 10:40 2021/4/28
      * @Param: [cbcUser]
@@ -127,7 +127,7 @@ public class CbcUserController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 充值
      * @Date: 10:45 2021/4/28
      * @Param: [user_id, user_money]

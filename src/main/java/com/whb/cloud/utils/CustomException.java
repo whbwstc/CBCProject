@@ -3,7 +3,7 @@ package com.whb.cloud.utils;
 /**
  * 自定义异常
  *
- * @author wanghanbin
+ * @author cshnefu
  * @date 2021年3月9日10:35:23
  */
 

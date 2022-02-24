@@ -23,7 +23,7 @@ import java.util.Map;
  * Description:
  * date: 2021/4/18 16:35
  *
- * @author wanghanbin
+ * @author cshnefu
  */
 
 @CrossOrigin
@@ -35,7 +35,7 @@ public class ProgramController {
     private static Logger logger = Logger.getLogger(CbcStoreController.class);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 图片上传
      * @Date: 16:37 2021/4/18
      * @Param: [file, request, response]

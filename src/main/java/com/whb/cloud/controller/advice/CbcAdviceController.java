@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 /**
- * @Author: wanghanbin
+ * @Author: cshnefu
  * @Date: 22:39 2021/3/13
  **/
 @CrossOrigin
@@ -45,7 +45,7 @@ public class CbcAdviceController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description:
      * @Date: 22:39 2021/3/13
      * @Param: [adviceId]
@@ -60,7 +60,7 @@ public class CbcAdviceController {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 保存意见反馈
      * @Date: 0:48 2021/4/19
      * @Param: [cbcAdvice]

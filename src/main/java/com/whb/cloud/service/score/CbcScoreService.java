@@ -19,7 +19,7 @@ public interface CbcScoreService extends IService<CbcScoreEntity> {
     PageUtils queryPage(Map<String, Object> params);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 积分查询
      * @Date: 18:09 2021/4/30
      * @Param: [user_id]
@@ -28,7 +28,7 @@ public interface CbcScoreService extends IService<CbcScoreEntity> {
     List<Map<String,String>> getUserScoreByIdNoPage(Integer user_id);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 积分总数
      * @Date: 16:06 2021/5/5
      * @Param: [userId]

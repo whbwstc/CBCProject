@@ -49,7 +49,7 @@ public class CbcAccountUserController {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 用户登录
      * @Date: 0:54 2021/3/14
      * @Param: [username, password]
@@ -128,7 +128,7 @@ public class CbcAccountUserController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 密码验证
      * @Date: 11:46 2021/4/19
      * @Param: [accUserName]
@@ -175,7 +175,7 @@ public class CbcAccountUserController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 修改密码
      * @Date: 11:32 2021/4/19
      * @Param: [accUserName, accUserPwd]
@@ -200,7 +200,7 @@ public class CbcAccountUserController {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 用户注册
      * @Date: 20:56 2021/5/23
      * @Param: [accUserName]
@@ -262,7 +262,7 @@ public class CbcAccountUserController {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 获取验证码
      * @Date: 14:42
      * @Param: [response]

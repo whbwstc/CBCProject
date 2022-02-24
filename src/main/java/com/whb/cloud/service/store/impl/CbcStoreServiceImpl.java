@@ -52,7 +52,7 @@ public class CbcStoreServiceImpl extends ServiceImpl<CbcStoreDao, CbcStoreEntity
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 修改寄存点状态
      * @Date: 14:49 2021/3/28
      * @Param: [state, store_id]

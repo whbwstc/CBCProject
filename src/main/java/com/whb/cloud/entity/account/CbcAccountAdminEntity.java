@@ -28,7 +28,7 @@ public class CbcAccountAdminEntity implements Serializable {
 	private Integer accAdId;
 
 	/**
-	 * @Author: wanghanbin
+	 * @Author: cshnefu
 	 * @Description: 寄存点id
 	 * @Date: 22:06 2021/4/19
 	 * @Param:

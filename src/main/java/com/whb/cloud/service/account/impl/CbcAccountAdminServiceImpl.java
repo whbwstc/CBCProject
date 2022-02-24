@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 /**
- * @Author: wanghanbin
+ * @Author: cshnefu
  * @Description:
  * @Date: 23:46 2021/3/13
  **/
@@ -36,7 +36,7 @@ public class CbcAccountAdminServiceImpl extends ServiceImpl<CbcAccountAdminDao, 
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 登录
      * @Date: 23:46 2021/3/13
      * @Param: [username, password]
@@ -54,7 +54,7 @@ public class CbcAccountAdminServiceImpl extends ServiceImpl<CbcAccountAdminDao, 
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 通过管理员邮箱查询管理员id
      * @Date: 0:04 2021/3/14
      * @Param: [email]

@@ -35,7 +35,7 @@ public class CbcJudgeEntity implements Serializable {
 	private Integer orderId;
 
 	/**
-	 * @Author: wanghanbin
+	 * @Author: cshnefu
 	 * @Description: 评价等级
 	 * @Date: 19:05 2021/4/18
 	 **/

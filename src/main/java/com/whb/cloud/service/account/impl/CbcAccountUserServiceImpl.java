@@ -31,7 +31,7 @@ public class CbcAccountUserServiceImpl extends ServiceImpl<CbcAccountUserDao, Cb
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 登录
      * @Date: 23:46 2021/3/13
      * @Param: [username, password]
@@ -49,7 +49,7 @@ public class CbcAccountUserServiceImpl extends ServiceImpl<CbcAccountUserDao, Cb
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 通过账户id查询用户id
      * @Date: 11:01 2021/4/5
      * @Param: [acc_user_id]
@@ -89,7 +89,7 @@ public class CbcAccountUserServiceImpl extends ServiceImpl<CbcAccountUserDao, Cb
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 修改密码
      * @Date: 11:05 2021/4/19
      * @Param: [accUserName, accUserPwd]
@@ -106,7 +106,7 @@ public class CbcAccountUserServiceImpl extends ServiceImpl<CbcAccountUserDao, Cb
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 密码验证
      * @Date: 11:48 2021/4/19
      * @Param: [accUserName]

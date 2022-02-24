@@ -32,7 +32,7 @@ public class CbcStoreController {
     private CbcStoreService cbcStoreService;
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description:
      * @Date: 13:55 寄存点分页查询
      * @Param: [params]
@@ -64,7 +64,7 @@ public class CbcStoreController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 寄存点查询
      * @Date: 9:38 2021/5/5
      * @Param: []
@@ -89,7 +89,7 @@ public class CbcStoreController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 按所属城市查询寄存点
      * @Date: 9:41 2021/5/5
      * @Param: [store_city]
@@ -118,7 +118,7 @@ public class CbcStoreController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description:
      * @Date: 10:35 获取单条记录
      * @Param: [storeId]
@@ -141,7 +141,7 @@ public class CbcStoreController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 新增寄存点
      * @Date: 10:34 2021/3/26
      * @Param: [storeId]
@@ -169,7 +169,7 @@ public class CbcStoreController {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 修改寄存点状态
      * @Date: 14:46 2021/3/28
      * @Param: [state, store_id]
@@ -204,7 +204,7 @@ public class CbcStoreController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 删除寄存点
      * @Date: 15:22 2021/3/28
      * @Param: [store_id]

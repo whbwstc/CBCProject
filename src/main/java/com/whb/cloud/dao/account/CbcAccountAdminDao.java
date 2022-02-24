@@ -7,7 +7,7 @@ import com.whb.cloud.service.account.CbcAccountAdminService;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * @Author: wanghanbin
+ * @Author: cshnefu
  * @Description:
  * @Date: 23:46 2021/3/13
  **/

@@ -19,7 +19,7 @@ public interface CbcStoreService extends IService<CbcStoreEntity> {
     PageUtils queryPage(Map<String, Object> params);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 寄存点分页查询
      * @Date: 9:40 2021/3/25
      * @Param: [startRow, pageSize]
@@ -29,7 +29,7 @@ public interface CbcStoreService extends IService<CbcStoreEntity> {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 按所属城市查询寄存点
      * @Date: 10:28 2021/5/5
      * @Param: [store_city]
@@ -38,7 +38,7 @@ public interface CbcStoreService extends IService<CbcStoreEntity> {
     List<CbcStoreEntity> getStoreByCity(String store_city);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 修改寄存点状态
      * @Date: 14:46 2021/3/28
      * @Param: [state, store_id]
@@ -48,7 +48,7 @@ public interface CbcStoreService extends IService<CbcStoreEntity> {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 寄存点背包和行李箱数量更新
      * @Date: 17:45 2021/4/13
      * @Param: [luggage_num, bag_num, store_id]

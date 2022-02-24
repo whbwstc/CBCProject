@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author: wanghanbin
+ * @Author: cshnefu
  * @Date: 22:41 2021/3/13
  **/
 
@@ -35,7 +35,7 @@ public class CbcAccountAdminController {
     public static HashMap<String,String> map = new HashMap<String,String>();
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 管理员登录
      * @Date: 0:54 2021/3/14
      * @Param: [username, password]
@@ -158,7 +158,7 @@ public class CbcAccountAdminController {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 获取验证码
      * @Date: 14:42
      * @Param: [response]

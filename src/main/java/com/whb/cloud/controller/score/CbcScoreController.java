@@ -37,7 +37,7 @@ public class CbcScoreController {
     private CbcScoreService cbcScoreService;
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 积分查询
      * @Date: 14:19 2021/5/1
      * @Param: [page, limit, user_id]

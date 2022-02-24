@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * 查询参数
  *
- * @author wanghanbin
+ * @author cshnefu
  * @date 2021年3月9日10:35:23
  */
 

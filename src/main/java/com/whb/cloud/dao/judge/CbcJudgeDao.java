@@ -18,7 +18,7 @@ import java.util.Map;
 public interface CbcJudgeDao extends BaseMapper<CbcJudgeEntity> {
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 列表分页查询
      * @Date: 19:26 2021/5/18
      * @Param: [startRow, pageSize, store_id]
@@ -27,7 +27,7 @@ public interface CbcJudgeDao extends BaseMapper<CbcJudgeEntity> {
     List<Map<String,String>> getStoreJudgeById(Integer startRow, Integer pageSize, Integer store_id);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 寄存点评价总数
      * @Date: 19:29 2021/5/18
      * @Param: [store_id]
@@ -36,7 +36,7 @@ public interface CbcJudgeDao extends BaseMapper<CbcJudgeEntity> {
     int countStoreJudge(Integer store_id);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description:  查找当前订单评价状态
      * @Date: 15:32 2021/4/14
      * @Param: [order_id]
@@ -45,7 +45,7 @@ public interface CbcJudgeDao extends BaseMapper<CbcJudgeEntity> {
     int getJudgeStateById(Integer order_id);
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 根据订单id评价
      * @Date: 23:56 2021/4/18
      * @Param: [judgeGrade, judgeText, judgeTime, order_id]

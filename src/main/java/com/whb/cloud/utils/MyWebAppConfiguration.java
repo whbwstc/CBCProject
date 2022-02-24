@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * Description:
  * date: 2021/4/18 18:15
  *
- * @author wanghanbin
+ * @author cshnefu
  */
 @Configuration
 public class MyWebAppConfiguration implements WebMvcConfigurer {

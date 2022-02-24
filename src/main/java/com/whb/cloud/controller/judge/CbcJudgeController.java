@@ -39,7 +39,7 @@ public class CbcJudgeController {
     private CbcJudgeService cbcJudgeService;
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 列表分页查询
      * @Date: 19:44 2021/5/18
      * @Param: [page, limit, store_id]
@@ -73,7 +73,7 @@ public class CbcJudgeController {
 
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description:  查询评价状态
      * @Date: 17:13 2021/4/15
      * @Param: [order_id]
@@ -104,7 +104,7 @@ public class CbcJudgeController {
     }
 
     /**
-     * @Author: wanghanbin
+     * @Author: cshnefu
      * @Description: 新增评价
      * @Date: 15:26 2021/4/14
      * @Param: [cbcJudge]
